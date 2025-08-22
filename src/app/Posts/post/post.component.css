@@ -5,3 +5,7 @@ textarea {
 .mat-mdc-form-field {
     display: inline;
 }
+
+mat-spinner {
+    margin: auto;
+}
