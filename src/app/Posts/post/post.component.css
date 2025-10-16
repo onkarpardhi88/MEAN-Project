@@ -1,13 +1,14 @@
-mat-form-field
+mat-form-field,
 textarea {
     width: 100%;
-}
-.mat-mdc-form-field {
-    display: inline;
 }
 
 mat-spinner {
     margin: auto;
+}
+
+.mat-mdc-form-field {
+    display: inline;
 }
 
 input[type="file"] {
