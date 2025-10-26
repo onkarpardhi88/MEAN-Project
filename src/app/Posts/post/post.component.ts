@@ -36,8 +36,8 @@ export class PostComponent implements OnInit {
         this.isLoading = true;
         this.postService.getPost(this.postId).subscribe(postData => {
           this.isLoading = false;
-          this.post = { id: postData._id, title: postData.title, content: postData.content, imagePath: postData.imagePath};
-          this.form.patchValue({ title: this.post.title, content: this.post.content, image: this.post.imagePath });
+          this.post = { id: postData._id, title: postData.title, content: postData.content, imagePath: postData.imagePath, creator: postData.creator};
+          this.form.patchValue({ title: this.post.title, content: this.post.content, image: this.post.imagePath, creator: this.post.creator });
         });
       } else {
         this.mode = 'create';

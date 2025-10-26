@@ -7,21 +7,11 @@ import { SignupComponent } from './Auth/signup/signup.component';
 import { AuthGuard } from './Auth/auth.guard';
 
 const routes: Routes = [
-  {
-    path: '', component:  PostListComponent
-  },
-  {
-    path: 'create', component: PostComponent, canActivate: [AuthGuard]
-  },
-  {
-    path: 'edit/:postId', component: PostComponent, canActivate: [AuthGuard]
-  },
-  {
-    path:'login', component:LoginComponent
-  },
-  {
-    path: 'signup', component: SignupComponent
-  }
+  { path: '', component:  PostListComponent },
+  { path: 'create', component: PostComponent, canActivate: [AuthGuard] },
+  { path: 'edit/:postId', component: PostComponent, canActivate: [AuthGuard] },
+  { path: 'auth', loadChildren: () => import('./Auth/auth.module').then(m => m.AuthModule)}
+  
 ];
 
 @NgModule({

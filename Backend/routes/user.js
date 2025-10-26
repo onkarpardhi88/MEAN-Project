@@ -19,7 +19,7 @@ router.post("/signup", (req, res, next) => {
     })
     .catch(err => {
             res.status(500).json({
-                error: err
+                message: "Invalid Authentication Credentials"
             })
         })
   });
@@ -43,15 +43,16 @@ router.post("/login", (req, res, next) => {
             message: "Auth Failed",
           });
         }
-        const token = jwt.sign({email: fetchedUser.email, userId: fetchedUser._id}, 'secretKey_this_sould_be_longer', {expiresIn: '1h'});
+        const token = jwt.sign({email: fetchedUser.email, userId: fetchedUser._id}, process.env.JWT_KEY, {expiresIn: '1h'});
         res.status(201).json({
             token: token,
-            expiresIn: 3600
+            expiresIn: 3600,
+            userId: fetchedUser._id
           });
       })
       .catch((err) => {
         return res.status(401).json({
-          message: "Auth Failed",
+          message: "Invalid Authentication Credentials",
         });
       });
 })

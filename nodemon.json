@@ -1,0 +1,5 @@
+{
+    "env": {
+        "JWT_KEY":  "secretKey_this_sould_be_longer"
+    }
+}
